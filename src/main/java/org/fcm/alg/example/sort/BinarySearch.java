@@ -1,4 +1,4 @@
-package org.fcm.alg.example.binary;
+package org.fcm.alg.example.sort;
 
 
 import org.springframework.lang.NonNull;

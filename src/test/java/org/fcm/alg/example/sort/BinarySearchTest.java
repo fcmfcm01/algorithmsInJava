@@ -1,13 +1,12 @@
-package org.fcm.alg.example.binary;
+package org.fcm.alg.example.sort;
 
 import junit.framework.TestCase;
 import org.junit.Assert;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.fcm.alg.example.binary.BinarySearch.search;
+import static org.fcm.alg.example.sort.BinarySearch.search;
 
 public class BinarySearchTest extends TestCase {
 

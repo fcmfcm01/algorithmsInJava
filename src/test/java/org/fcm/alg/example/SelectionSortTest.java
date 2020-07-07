@@ -1,6 +1,7 @@
 package org.fcm.alg.example;
 
 import junit.framework.TestCase;
+import org.fcm.alg.example.sort.SelectionSort;
 
 import java.util.Arrays;
 import java.util.Random;

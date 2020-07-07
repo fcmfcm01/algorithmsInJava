@@ -1,6 +1,4 @@
-package org.fcm.alg.example;
-
-import java.util.Arrays;
+package org.fcm.alg.example.sort;
 
 public class SelectionSort {
     public static int findSmallest(int[] input){
