@@ -59,7 +59,7 @@ public class MeetingArrangement {
     }
 
     public static void main(String[] args) {
-        Meeting[] meetings = init(10);
+        Meeting[] meetings = init(1542);
         Arrays.sort(meetings);
         System.out.println("Meetings = " + Arrays.deepToString(meetings));
         arrangeMeeting(meetings);
@@ -81,7 +81,7 @@ class Meeting implements Comparable<Meeting> {
     @Override
     public int compareTo(Meeting other) {
         if (this.end == other.end) {
-            return this.start - other.end;
+            return this.start - other.start;
         } else
             return this.end - other.end;
     }
