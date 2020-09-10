@@ -16,5 +16,9 @@ public enum Color {
   /**
    * selected
    */
-  RED;
+  RED,
+  /**
+   * skipped
+   */
+  PURPLE;
 }
