@@ -1,4 +1,4 @@
-package com.fcm.learning.hw;
+package com.fcm.learning.leetcode;
 
 import java.util.Arrays;
 

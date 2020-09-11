@@ -1,6 +1,8 @@
 package com.fcm.learning.exercises.graph;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Dijkstra {
   public static Node constructNode(int index, int value) {
