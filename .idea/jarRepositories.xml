@@ -2,9 +2,64 @@
 <project version="4">
   <component name="RemoteRepositoriesConfiguration">
     <remote-repository>
+      <option name="id" value="fp-board-common" />
+      <option name="name" value="FP Artifactory-releases" />
+      <option name="url" value="https://fpisoj70.americas.nsn-net.net:443/artifactory/fp-board-image-local" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="ae-internal" />
+      <option name="name" value="FP Artifactory repo" />
+      <option name="url" value="https://fpisoj70.americas.nsn-net.net:443/artifactory/ae-local" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jfrog" />
+      <option name="name" value="Jfrog" />
+      <option name="url" value="https://dl.bintray.com/jfrog/artifactory-tools/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="mvnrepo" />
+      <option name="name" value="mvnrepo" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Maven Central repository" />
       <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="internal" />
+      <option name="name" value="internal" />
+      <option name="url" value="http://scm0.access.nsn.com/nexus/content/groups/internal/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="spring-libs-snapshot" />
+      <option name="name" value="spring-libs-snapshot" />
+      <option name="url" value="https://repo.spring.io/libs-snapshot" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://maven.aliyun.com/repository/public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="http://scm0.access.nsn.com/nexus/content/groups/unify/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="sonatype-libs-snapshot" />
+      <option name="name" value="sonatype-libs-snapshot" />
+      <option name="url" value="http://scm0.access.nsn.com/nexus/content/groups/unify/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="spring-snapshots" />
+      <option name="name" value="Spring Snapshots" />
+      <option name="url" value="http://scm0.access.nsn.com/nexus/content/groups/unify/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="unify" />
+      <option name="name" value="unify" />
+      <option name="url" value="http://scm0.access.nsn.com/nexus/content/groups/unify/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="jboss.community" />
@@ -12,9 +67,9 @@
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="central" />
-      <option name="name" value="Central Repository" />
-      <option name="url" value="https://maven.aliyun.com/repository/public" />
+      <option name="id" value="alu-repo" />
+      <option name="name" value="alu-repo" />
+      <option name="url" value="https://repo.lab.pl.alcatel-lucent.com/netact-mvn-releases/" />
     </remote-repository>
   </component>
 </project>
