@@ -59,7 +59,7 @@ public class MeetingArrangement {
     }
 
     public static void main(String[] args) {
-        Meeting[] meetings = init(1542);
+        Meeting[] meetings = init(10);
         Arrays.sort(meetings);
         System.out.println("Meetings = " + Arrays.deepToString(meetings));
         arrangeMeeting(meetings);

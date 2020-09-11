@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="algorithmsInJava" />
         <module name="java" />
+        <module name="alg-for-fun-in-java" />
       </profile>
     </annotationProcessing>
   </component>
