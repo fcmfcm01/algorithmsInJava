@@ -1,9 +1,8 @@
-package pkg;
+package org.fcm.alg.example.pkg;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.Inet4Address;
 
 public class IP {
     public static void main(String[] args) throws IOException {

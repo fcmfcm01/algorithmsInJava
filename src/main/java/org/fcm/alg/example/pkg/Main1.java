@@ -1,4 +1,4 @@
-package pkg;
+package org.fcm.alg.example.pkg;
 
 import java.io.BufferedReader;
 import java.io.IOException;

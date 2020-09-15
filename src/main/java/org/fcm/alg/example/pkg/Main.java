@@ -1,4 +1,4 @@
-package pkg;
+package org.fcm.alg.example.pkg;
 
 import java.util.Scanner;
 
