@@ -24,9 +24,10 @@ public class CoinChange {
 
     private int coinChangeWithDP(int[] coins, int target) {
         int[] dp = new int[target + 1];
-        Arrays.fill(dp, Integer.MAX_VALUE);
+        // 设置最大值为target+1, 不能设置为无穷大，这样会出现数据溢出
+        Arrays.fill(dp, target+1);
         dp[0] = 0;
-        for (int i = 1; i < dp.length ; i++) {
+        for (int i = 1; i <= dp.length ; i++) {
             for (int coin : coins) {
                 //当前金额不足以消耗当前的coin
                 if (i < coin) continue;
@@ -39,12 +40,13 @@ public class CoinChange {
 
     public static void main(String[] args) {
         int[] coins = new int[]{1, 2, 5, 7};
+        coins= new int[]{2};
         CoinChange coinChange = new CoinChange();
         long start = System.currentTimeMillis();
-        System.out.println(coinChange.coinChange(coins, 100000));
+        System.out.println(coinChange.coinChange(coins, 3));
         System.out.println(System.currentTimeMillis() - start + "ms");
         start = System.currentTimeMillis();
-        System.out.println(coinChange.coinChangeWithDP(coins, 100000));
+        System.out.println(coinChange.coinChangeWithDP(coins, 3));
         System.out.println(System.currentTimeMillis() - start + "ms");
 
     }
