@@ -2,11 +2,11 @@ package com.fcm.learning.tree;
 
 //二叉树
 public class TreeNode {
-  int value;
+  int val;
   TreeNode left;
   TreeNode right;
 
   public TreeNode(int value) {
-    this.value = value;
+    this.val = value;
   }
 }

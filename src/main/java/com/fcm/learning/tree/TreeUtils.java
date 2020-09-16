@@ -36,6 +36,40 @@ public class TreeUtils {
   }
 
 
+  //设置pre值为更大值域的long,以防溢出
+  long pre = Long.MIN_VALUE;
+
+  /**
+   * 假设一个二叉搜索树具有如下特征：
+   * <br/>
+   * <ul>
+   * <li> 节点的左子树只包含小于当前节点的数。</li>
+   * <li> 节点的右子树只包含大于当前节点的数。</li>
+   * <li> 所有左子树和右子树自身必须也是二叉搜索树。</li>
+   * </ul>
+   *
+   * @param root 根节点
+   * @return 是否二叉搜索树
+   */
+  public boolean isValidBST(TreeNode root) {
+    //已搜索到叶子节点
+    if (root == null) {
+      return true;
+    }
+    //中序遍历开始,遍历左子树
+    if (!isValidBST(root.left)) {
+      return false;
+    }
+    // 如果当前节点小于已中序遍历中的任何节点，则为false
+    if (root.val <= pre) {
+      return false;
+    }
+    pre = root.val;
+    //遍历右子树
+    return isValidBST(root.right);
+  }
+
+
   public static void main(String[] args) {
     TreeNode root = initOrderedTree(7);
 
@@ -49,6 +83,8 @@ public class TreeUtils {
     midOrderTraversalNonRecursive(root);
     System.out.println("\n后序：");
     lastOrderTraversal(root);
+    System.out.println();
+    lastOrderTraversalNonRecursive(root);
     System.out.println("\n层次遍历：");
     levelTraversal(root);
   }
@@ -61,7 +97,7 @@ public class TreeUtils {
    */
   public static void preOrderTraversal(TreeNode root) {
     if (root != null) {
-      System.out.print(root.value + " ");
+      System.out.print(root.val + " ");
       preOrderTraversal(root.left);
       preOrderTraversal(root.right);
     }
@@ -78,7 +114,7 @@ public class TreeUtils {
       treeNodeStack.push(root);
       while (!treeNodeStack.isEmpty()) {
         TreeNode node = treeNodeStack.pop();
-        System.out.print(node.value + " ");
+        System.out.print(node.val + " ");
         if (node.right != null) {
           treeNodeStack.push(node.right);
         }
@@ -97,9 +133,9 @@ public class TreeUtils {
   public static void midOrderTraversal(TreeNode root) {
 
     if (root != null) {
-      preOrderTraversal(root.left);
-      System.out.print(root.value + " ");
-      preOrderTraversal(root.right);
+      midOrderTraversal(root.left);
+      System.out.print(root.val + " ");
+      midOrderTraversal(root.right);
     }
   }
 
@@ -109,12 +145,29 @@ public class TreeUtils {
    *
    * @param root
    */
-  public static void midOrderTraversalNonRecursive(TreeNode root) {
+  public static List<Integer> midOrderTraversalNonRecursive(TreeNode root) {
+    List<Integer> resultList = new ArrayList<>();
     if (root != null) {
-      preOrderTraversalNonRecursive(root.left);
-      System.out.print(root.value + " ");
-      preOrderTraversalNonRecursive(root.right);
+      //后进先出
+      Stack<TreeNode> stack = new Stack<>();
+      //添加根节点
+      stack.push(root);
+      //从左子树开始遍历
+      TreeNode node = root.left;
+      while (!stack.isEmpty() || node != null) {
+        while (node != null) {
+          stack.push(node);
+          node = node.left;
+        }
+        //左子树遍历完毕，添加左子树根节点
+        resultList.add(stack.peek().val);
+        System.out.print(stack.peek().val + " ");
+        //遍历右子树
+        node = stack.pop().right;
+      }
+
     }
+    return resultList;
   }
 
 
@@ -125,9 +178,9 @@ public class TreeUtils {
    */
   public static void lastOrderTraversal(TreeNode root) {
     if (root != null) {
-      preOrderTraversal(root.left);
-      preOrderTraversal(root.right);
-      System.out.print(root.value + " ");
+      lastOrderTraversal(root.left);
+      lastOrderTraversal(root.right);
+      System.out.print(root.val + " ");
     }
   }
 
@@ -136,12 +189,35 @@ public class TreeUtils {
    *
    * @param root
    */
-  public static void lastOrderTraversalNonRecursive(TreeNode root) {
+  public static List<Integer> lastOrderTraversalNonRecursive(TreeNode root) {
+    //TODO 不对 要仔细思考
+    List<Integer> resultList = new ArrayList<>();
     if (root != null) {
-      preOrderTraversalNonRecursive(root.left);
-      preOrderTraversalNonRecursive(root.right);
-      System.out.print(root.value + " ");
+      //后进先出
+      Stack<TreeNode> stack = new Stack<>();
+      //添加根节点
+      stack.push(root);
+      //从左子树开始遍历
+      TreeNode pre = root;
+      TreeNode node = root.left;
+      while (node.left != null || node.right != null) {
+        while (node.left != null) {
+          pre = node;
+          stack.push(node.left);
+          node = node.left;
+        }
+        //遍历右子树
+        node = pre.right;
+      }
+      while (!stack.isEmpty()) {
+        //左子树遍历完毕，添加左子树节点值
+        TreeNode cur = stack.pop();
+        resultList.add(cur.val);
+        System.out.print(cur.val + " ");
+      }
+
     }
+    return resultList;
   }
 
   /**
@@ -154,7 +230,7 @@ public class TreeUtils {
     treeNodes.add(root);
     while (!treeNodes.isEmpty()) {
       TreeNode temp = treeNodes.poll();
-      System.out.print(temp.value + " ");
+      System.out.print(temp.val + " ");
       if (temp.left != null) {
         treeNodes.add(temp.left);
       }
