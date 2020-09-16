@@ -15,8 +15,10 @@ public class RegExMatch {
       for (int indexOfPattern = 1; indexOfPattern <= patternLength; ++indexOfPattern) {
         //* 时需要匹配前置条件
         if (pattern.charAt(indexOfPattern - 1) == '*') {
+          //因为此时需要参考的上一个值需要再后退两位，亦即“(.|[a-z])*”
           dp[indexOfStr][indexOfPattern] = dp[indexOfStr][indexOfPattern - 2];
           if (matches(str, pattern, indexOfStr, indexOfPattern - 1)) {
+            //只要曾经match过的都算
             dp[indexOfStr][indexOfPattern] = dp[indexOfStr][indexOfPattern] || dp[indexOfStr - 1][indexOfPattern];
           }
         } else {
