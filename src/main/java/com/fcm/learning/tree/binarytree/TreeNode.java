@@ -1,4 +1,4 @@
-package com.fcm.learning.tree;
+package com.fcm.learning.tree.binarytree;
 
 //二叉树
 public class TreeNode {
